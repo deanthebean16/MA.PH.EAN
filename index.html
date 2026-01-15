@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAPHEAN Bot</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1 class="main-title">MA.PH.EAN</h1>
+      <p class="subtitle">Meet our multifunctional delivery robot</p>
+    </header>
+
+    <main>
+      <!-- Creators -->
+      <section class="section fade-in">
+        <h2>The Creators</h2>
+        <div class="content">
+          <img src="images/creators2.jpg" alt="Creators" />
+          <p>
+            Maphean was created to follow a black trail until it reaches the end, then return to its starting point. It can pick up objects with its claw and drop them off at a destination. With both functions combined, Maphean aims to become a future delivery robot.
+          </p>
+        </div>
+      </section>
+
+      <!-- Purpose -->
+      <section class="section fade-in">
+        <h2>Purpose of Maphean</h2>
+        <div class="content">
+          <img src="images/maphean.JPG" alt="Maphean Bot" />
+          <p>
+            Maphean is designed to autonomously follow paths and transport items. It's a simple yet powerful step toward robots that can assist in everyday logistics or automation tasks.
+          </p>
+        </div>
+      </section>
+
+      <!-- Blueprint -->
+      <section class="section fade-in">
+        <h2>Blueprint - For following a black trail </h2>
+        <div class="content">
+          <img src="images/blueprint.PNG" alt="Blueprint of Maphean" class="blueprint-img" />
+        </div>
+      </section>
+    </main>
+
+
+    <!-- Explanation: Black Line Pickup Routine -->
+    <section class="section fade-in">
+      <h2>Explanation: Black Line Pickup Routine</h2>
+
+      <!-- Sensor Setup -->
+      <div class="explanation-block">
+        <img src="code1/1.png" alt="Sensor Setup" class="explanation-img" />
+        <p><strong>Sensor Initialization:</strong> The robot continuously reads values from its left, center, and right line-following sensors to detect its position relative to the black line.</p>
+      </div>
+
+      <!-- Line Following Logic -->
+      <div class="explanation-block">
+        <img src="code1/2.png" alt="Line Following" class="explanation-img" />
+        <p><strong>Line Following:</strong> Based on the sensor values, the robot adjusts its movement to stay aligned with the black track. It goes straight if the center sensor sees black, or turns if the left or right sensors go off track.</p>
+      </div>
+
+      <!-- Object Pickup and Drop Logic -->
+      <div class="explanation-block">
+        <img src="code1/3.png" alt="Pickup and Drop Logic" class="explanation-img" />
+        <p><strong>Object Handling:</strong> If none of the sensors detect black (robot is on the object zone), it triggers a full pickup and drop sequence. The claw opens, moves forward, grabs the object, turns, and deposits it before continuing.</p>
+      </div>
+    </section>
+
+
+    
+
+    <!-- Video: Following the Track -->
+    <section class="section fade-in">
+      <h2>Demo: Following the Track</h2>
+      <div class="video-wrapper">
+        <iframe class="demo-video" width="560" height="315"
+          src="https://www.youtube.com/embed/h0-LLMVobVA"
+          title="Track Following Demo" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Explanation: Object Pickup Code -->
+    <section class="section fade-in">
+      <h2>Explanation: Object Pickup Code</h2>
+
+      <!-- 1. Sensor Initialization -->
+      <div class="explanation-block">
+        <img src="code2/1.png" alt="Sensor Initialization" class="explanation-img" />
+        <p><strong>Sensor Initialization:</strong> Variables for the left, center, and right sensors are initialized. These will store real-time values used to control movement.</p>
+      </div>
+
+      <!-- 2. Main Loop & Sensor Reading -->
+      <div class="explanation-block">
+        <img src="code2/2.png" alt="Sensor Reading Loop" class="explanation-img" />
+        <p><strong>Sensor Reading Loop:</strong> In a continuous loop, the robot gathers updated readings from its three line-following sensors to determine where it is relative to the line.</p>
+      </div>
+
+      <!-- 3. Move Forward -->
+      <div class="explanation-block">
+        <img src="code2/3.png" alt="Move Forward" class="explanation-img" />
+        <p><strong>Move Forward:</strong> If the center sensor sees a light surface (value > 2700), it means the robot has left the black line and needs to keep moving forward to re-find it.</p>
+      </div>
+
+      <!-- 4. Close Claw -->
+      <div class="explanation-block">
+        <img src="code2/4.png" alt="Close Claw" class="explanation-img" />
+        <p><strong>Close Claw:</strong> If the center sensor detects a dark spot (value < 2450), the robot stops and activates the claw motor to grab an object.</p>
+      </div>
+
+      <!-- 5. 180-Degree Turn -->
+      <div class="explanation-block">
+        <img src="code2/5.png" alt="180 Turn" class="explanation-img" />
+        <p><strong>180 Turn:</strong> The robot spins in place using opposite motor directions to make a full 180-degree turn, preparing to head back with the object.</p>
+      </div>
+
+      <!-- 6. Move Back & Release -->
+      <div class="explanation-block">
+        <img src="code2/6.png" alt="Release Object" class="explanation-img" />
+        <p><strong>Move Back & Release:</strong> It reverses briefly while opening the claw slightly to release the object at its target destination.</p>
+      </div>
+
+      <!-- 7. Left Drift Correction -->
+      <div class="explanation-block">
+        <img src="code2/7.png" alt="Left Drift Correction" class="explanation-img" />
+        <p><strong>Left Drift Correction:</strong> If the left sensor detects white, the robot has drifted right and must turn left to return to the line.</p>
+      </div>
+
+      <!-- 8. Right Drift Correction -->
+      <div class="explanation-block">
+        <img src="code2/8.png" alt="Right Drift Correction" class="explanation-img" />
+        <p><strong>Right Drift Correction:</strong> If the right sensor sees white, the robot has veered left and needs to turn right to correct its path.</p>
+      </div>
+    </section>
+
+    <!-- Video: Object Pickup -->
+    <section class="section fade-in">
+      <h2>Demo: Object Pickup</h2>
+      <div class="video-wrapper">
+        <iframe class="demo-video" width="560" height="315"
+          src="https://www.youtube.com/embed/1TIr5CaIgGw"
+          title="Object Pickup Demo" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    
+    <footer>
+      <p>&copy; 2025 Dean Cheng, Matthew Chow, Stephen Chen</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
