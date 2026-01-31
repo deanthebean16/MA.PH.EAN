@@ -1,6 +1,6 @@
 # MA.PH.EAN: Autonomous Delivery Robot
 
-[Live Documentation Site](https://deanthebean16.github.io/MA.PH.EAN/) | [YouTube Video Demo 1](https://youtu.be/h0-LLMVobVA) [YouTube Video Demo 2](https://youtu.be/1TIr5CaIgGw) | [View Source Code](./)
+[Live Documentation Site](https://deanthebean16.github.io/MA.PH.EAN/) | [YouTube Video Demo 1](https://youtu.be/h0-LLMVobVA) [YouTube Video Demo 2](https://youtu.be/1TIr5CaIgGw) | [View Source Code](code)
 
 ### Project Overview
 Maphean is a VEX-based autonomous robot designed to navigate complex trails using a triple-sensor array and transport logistics via a motorized claw. This project demonstrates the integration of **Embedded C** logic for hardware control and **HTML/CSS** for technical documentation. 
